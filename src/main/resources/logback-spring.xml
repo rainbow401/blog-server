@@ -43,7 +43,7 @@
         <appender-ref ref="ASYNC"/>
         <appender-ref ref="FILE"/>
     </root>
-    <logger name="com.practice" additivity="false" level="info">
+    <logger name="com.blog.server" additivity="false" level="info">
         <appender-ref ref="STDOUT"/>
     </logger>
 
