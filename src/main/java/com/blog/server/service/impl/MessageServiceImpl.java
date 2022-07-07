@@ -2,7 +2,7 @@ package com.blog.server.service.impl;
 
 import com.blog.server.entity.Message;
 import com.blog.server.mapper.MessageMapper;
-import com.blog.server.service.IMessageService;
+import com.blog.server.service.MessageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-07-06
  */
 @Service
-public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements IMessageService {
+public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements MessageService {
 
 }

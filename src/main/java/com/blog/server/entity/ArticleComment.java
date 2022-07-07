@@ -1,6 +1,6 @@
 package com.blog.server.entity;
 
-import com.blog.server.entity.base.BaseEntity;
+import com.common.model.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

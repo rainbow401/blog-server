@@ -47,7 +47,8 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
+
     <!--打印sql日志-->
-    <logger name="com.practice.mapper" level="debug"/>
+    <logger name="com.blog.server.mapper" level="debug"/>
 
 </configuration>

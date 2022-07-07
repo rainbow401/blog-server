@@ -1,6 +1,6 @@
 package com.blog.server.service;
 
-import com.blog.server.entity.Tag;
+import com.blog.server.entity.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yanzhihao
  * @since 2022-07-06
  */
-public interface ITagService extends IService<Tag> {
+public interface CommentService extends IService<Comment> {
 
 }

@@ -2,7 +2,7 @@ package com.blog.server.service.impl;
 
 import com.blog.server.entity.ArticleTag;
 import com.blog.server.mapper.ArticleTagMapper;
-import com.blog.server.service.IArticleTagService;
+import com.blog.server.service.ArticleTagService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-07-06
  */
 @Service
-public class ArticleTagServiceImpl extends ServiceImpl<ArticleTagMapper, ArticleTag> implements IArticleTagService {
+public class ArticleTagServiceImpl extends ServiceImpl<ArticleTagMapper, ArticleTag> implements ArticleTagService {
 
 }

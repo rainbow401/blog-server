@@ -1,9 +1,10 @@
 server:
-  port: 8082
+  port: 8080
+
 
 spring:
   application:
-    name: yanzhihao-practice
+    name: blog-server
 #  cloud:
 #    discovery:
 #      register: true
@@ -63,7 +64,6 @@ mybatis-plus:
       # 注意更新策略，默认空值、null值不更新
       update-strategy: not_empty
   mapper-locations: classpath:mapper/*.xml
-
 
 
 
