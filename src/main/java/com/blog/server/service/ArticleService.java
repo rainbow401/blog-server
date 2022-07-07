@@ -1,6 +1,6 @@
 package com.blog.server.service;
 
-import com.blog.server.controller.article.dto.ArticleCreationDTO;
+import com.blog.server.domain.article.dto.ArticleCreationDTO;
 import com.blog.server.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
 

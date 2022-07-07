@@ -1,4 +1,4 @@
-package com.blog.server.controller.tag;
+package com.blog.server.controller;
 
 
 import com.blog.server.entity.Tag;

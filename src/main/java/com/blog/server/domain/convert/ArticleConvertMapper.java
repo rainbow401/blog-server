@@ -1,5 +1,6 @@
-package com.blog.server.controller.article.dto;
+package com.blog.server.domain.convert;
 
+import com.blog.server.domain.article.dto.ArticleCreationDTO;
 import com.blog.server.entity.Article;
 
 public class ArticleConvertMapper {

@@ -1,4 +1,4 @@
-package com.blog.server.controller.message;
+package com.blog.server.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
