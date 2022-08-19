@@ -1,8 +1,8 @@
 package com.blog.server.controller;
 
 
-import com.blog.server.entity.Tag;
 import com.blog.server.service.TagService;
+import com.common.entity.Tag;
 import com.common.resopnse.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

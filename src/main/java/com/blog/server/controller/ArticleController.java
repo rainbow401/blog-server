@@ -3,9 +3,9 @@ package com.blog.server.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
-import com.blog.server.entity.Article;
+import com.common.entity.Article;
 import com.blog.server.service.ArticleService;
-import com.common.model.PageDTO;
+import com.common.dto.PageDTO;
 import com.common.resopnse.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

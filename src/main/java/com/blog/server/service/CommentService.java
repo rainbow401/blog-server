@@ -1,6 +1,6 @@
 package com.blog.server.service;
 
-import com.blog.server.entity.Comment;
+import com.common.entity.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

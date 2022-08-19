@@ -2,9 +2,9 @@ package com.blog.server.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.blog.server.entity.Message;
+import com.common.entity.Message;
 import com.blog.server.service.MessageService;
-import com.common.model.PageDTO;
+import com.common.dto.PageDTO;
 import com.common.resopnse.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
