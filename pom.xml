@@ -15,7 +15,9 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
+
+
 	<dependencies>
 		<!--引入公共模块依赖-->
 		<dependency>

@@ -14,6 +14,3 @@ spring:
       maximum-pool-size: 8
       minimum-idle: 8
       pool-name: HikariCP-financial
-  sql:
-    init:
-      platform: mysql

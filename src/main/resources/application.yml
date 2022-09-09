@@ -5,27 +5,6 @@ server:
 spring:
   application:
     name: blog-server
-#  cloud:
-#    discovery:
-#      register: true
-#    loadbalancer:
-#      ribbon:
-#        enabled: false
-#  datasource:
-#    type: com.zaxxer.hikari.HikariDataSource
-#    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    hikari:
-#      username: root
-#      password: yanzhihao
-#      auto-commit: true
-#      connection-test-query: select 1
-#      connection-timeout: 30000
-#      idle-timeout: 600000
-#      max-lifetime: 1800000
-#      maximum-pool-size: 8
-#      minimum-idle: 8
-#      pool-name: HikariCP-financial
   redis:
     host: 127.0.0.1
     port: 6379
