@@ -3,15 +3,18 @@ package com.blog.server.domain.auth.util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
-import com.blog.server.domain.auth.constance.TokenConstance;
+import com.blog.common.entity.User;
 import com.blog.server.domain.auth.config.AuthProperties;
-import com.common.entity.User;
+import com.blog.server.domain.auth.constance.TokenConstance;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
-@AllArgsConstructor(onConstructor_ = {@Resource})
+@RequiredArgsConstructor
+@Component
 public class TokenStore {
 
     private final AuthProperties authProperties;

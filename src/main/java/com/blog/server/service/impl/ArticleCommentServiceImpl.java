@@ -1,6 +1,6 @@
 package com.blog.server.service.impl;
 
-import com.blog.server.entity.ArticleComment;
+import com.blog.common.entity.ArticleComment;
 import com.blog.server.mapper.ArticleCommentMapper;
 import com.blog.server.service.ArticleCommentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

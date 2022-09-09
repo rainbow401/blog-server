@@ -1,6 +1,6 @@
 package com.blog.server.service.impl;
 
-import com.blog.server.entity.ArticleTag;
+import com.blog.common.entity.ArticleTag;
 import com.blog.server.mapper.ArticleTagMapper;
 import com.blog.server.service.ArticleTagService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

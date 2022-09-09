@@ -1,7 +1,7 @@
 package com.blog.server.domain.convert;
 
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
-import com.common.entity.Article;
+import com.blog.common.entity.Article;
 
 public class ArticleConvertMapper {
 

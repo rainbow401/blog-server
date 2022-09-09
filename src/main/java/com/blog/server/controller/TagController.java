@@ -2,8 +2,9 @@ package com.blog.server.controller;
 
 
 import com.blog.server.service.TagService;
-import com.common.entity.Tag;
-import com.common.resopnse.ResponseResult;
+import com.blog.common.entity.Tag;
+import com.blog.common.resopnse.ResponseResult;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +22,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/tag")
+@RequiredArgsConstructor
 public class TagController {
 
-    @Resource
-    private TagService tagService;
+    private final TagService tagService;
 
     @GetMapping("/list")
     public ResponseResult<List<Tag>> list() {

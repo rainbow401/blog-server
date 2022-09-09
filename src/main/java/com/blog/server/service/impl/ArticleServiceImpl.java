@@ -7,7 +7,7 @@ import com.blog.server.domain.convert.ArticleConvertMapper;
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
 import com.blog.server.mapper.ArticleMapper;
 import com.blog.server.service.ArticleService;
-import com.common.entity.Article;
+import com.blog.common.entity.Article;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -2,10 +2,11 @@ package com.blog.server.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.common.entity.Message;
+import com.blog.common.entity.Message;
 import com.blog.server.service.MessageService;
-import com.common.dto.PageDTO;
-import com.common.resopnse.ResponseResult;
+import com.blog.common.dto.PageDTO;
+import com.blog.common.resopnse.ResponseResult;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,10 +24,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/message")
+@RequiredArgsConstructor
 public class MessageController {
 
-    @Resource
-    private MessageService messageService;
+    private final MessageService messageService;
 
     @GetMapping("/page")
     public ResponseResult<Page<Message>> page(PageDTO dto) {

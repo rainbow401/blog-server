@@ -1,6 +1,6 @@
 package com.blog.server.mapper;
 
-import com.blog.server.entity.Comment;
+import com.blog.common.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

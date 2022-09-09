@@ -3,10 +3,11 @@ package com.blog.server.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
-import com.common.entity.Article;
+import com.blog.common.entity.Article;
 import com.blog.server.service.ArticleService;
-import com.common.dto.PageDTO;
-import com.common.resopnse.ResponseResult;
+import com.blog.common.dto.PageDTO;
+import com.blog.common.resopnse.ResponseResult;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,10 +25,10 @@ import java.util.List;
 @RequestMapping("/article")
 @RestController
 @Slf4j
+@RequiredArgsConstructor
 public class ArticleController {
 
-    @Resource
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
     /**
      * 分页查询文章

@@ -8,8 +8,10 @@ import com.blog.server.domain.auth.util.TokenStore;
 import com.blog.server.domain.user.dto.UserDTO;
 import com.blog.server.mapper.UserMapper;
 import com.blog.server.service.UserService;
-import com.common.entity.User;
+import com.blog.common.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-@AllArgsConstructor(onConstructor_ = {@Resource})
+@RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     private final TokenStore tokenStore;
