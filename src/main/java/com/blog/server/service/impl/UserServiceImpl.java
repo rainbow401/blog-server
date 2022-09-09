@@ -1,22 +1,16 @@
 package com.blog.server.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.blog.common.entity.User;
 import com.blog.server.domain.auth.dto.LoginDTO;
 import com.blog.server.domain.auth.util.TokenStore;
 import com.blog.server.domain.user.dto.UserDTO;
 import com.blog.server.mapper.UserMapper;
 import com.blog.server.service.UserService;
-import com.blog.common.entity.User;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 @Service
 @RequiredArgsConstructor

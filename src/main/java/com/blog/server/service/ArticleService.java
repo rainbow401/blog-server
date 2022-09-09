@@ -1,12 +1,12 @@
 package com.blog.server.service;
 
-import com.blog.server.domain.article.dto.ArticleCreationDTO;
-import com.blog.common.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.blog.common.entity.Article;
+import com.blog.server.domain.article.dto.ArticleCreationDTO;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author yanzhihao

@@ -1,13 +1,12 @@
 package com.blog.server.mapper;
 
-import com.blog.common.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.blog.common.entity.Comment;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author yanzhihao
