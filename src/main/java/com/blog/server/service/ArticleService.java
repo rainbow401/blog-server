@@ -3,6 +3,8 @@ package com.blog.server.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.blog.common.entity.Article;
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
+import com.blog.server.dto.ArticleUpdateDTO;
+import com.blog.server.vo.ArticleVO;
 
 /**
  * <p>
@@ -15,4 +17,8 @@ import com.blog.server.domain.article.dto.ArticleCreationDTO;
 public interface ArticleService extends IService<Article> {
 
     void addArticle(ArticleCreationDTO dto);
+
+    ArticleVO findById(String articleId);
+
+    void updateArticle(ArticleUpdateDTO dto);
 }

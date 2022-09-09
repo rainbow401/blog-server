@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 public class ArticleCreationDTO implements Serializable {
@@ -27,5 +28,5 @@ public class ArticleCreationDTO implements Serializable {
      * 标签
      */
     @NotNull(message = "请选择标签")
-    private Long tagId;
+    private List<Long> tagIdList;
 }

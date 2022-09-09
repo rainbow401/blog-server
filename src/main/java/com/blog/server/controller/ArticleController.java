@@ -6,13 +6,17 @@ import com.blog.common.dto.PageDTO;
 import com.blog.common.entity.Article;
 import com.blog.common.resopnse.ResponseResult;
 import com.blog.server.domain.article.dto.ArticleCreationDTO;
+import com.blog.server.dto.ArticleUpdateDTO;
 import com.blog.server.service.ArticleService;
+import com.blog.server.vo.ArticleVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -61,8 +65,25 @@ public class ArticleController {
      * @return
      */
     @PostMapping
-    public ResponseResult<Long> createArticle(@RequestBody ArticleCreationDTO dto) {
+    public ResponseResult<Void> createArticle(@RequestBody ArticleCreationDTO dto) {
         articleService.addArticle(dto);
+        return ResponseResult.success();
+    }
+
+    /**
+     * 查询文章
+     *
+     * @param articleId 文章id
+     * @return 文章信息
+     */
+    @GetMapping
+    public ResponseResult<ArticleVO> findArticle(@RequestParam String articleId) {
+        return ResponseResult.success(articleService.findById(articleId));
+    }
+
+    @PutMapping
+    public ResponseResult<Void> updateArticle(@RequestParam ArticleUpdateDTO dto) {
+        articleService.updateArticle(dto);
         return ResponseResult.success();
     }
 }
