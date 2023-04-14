@@ -3,6 +3,7 @@ package com.blog.server.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.blog.common.entity.User;
 import com.blog.server.domain.auth.dto.LoginDTO;
+import com.blog.server.domain.auth.util.EncryptUtil;
 import com.blog.server.domain.auth.util.TokenStore;
 import com.blog.server.domain.user.dto.UserDTO;
 import com.blog.server.mapper.UserMapper;
@@ -42,6 +43,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     private void verifyPassword(LoginDTO dto, User user) {
-        // todo 密码验证
+        if (!user.getPassword().equals(EncryptUtil.encryptPassword(dto.getPassword()))) {
+            throw new IllegalArgumentException("密码错误");
+        }
     }
 }

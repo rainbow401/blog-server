@@ -1,23 +1,28 @@
 package com.blog.server.domain.auth.util;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.blog.common.entity.User;
 import com.blog.server.domain.auth.config.AuthProperties;
 import com.blog.server.domain.auth.constance.TokenConstance;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.Date;
+import java.util.Map;
 
-@RequiredArgsConstructor
 @Component
 public class TokenStore {
 
     private final AuthProperties authProperties;
+
+    public TokenStore(AuthProperties authProperties) {
+        this.authProperties = authProperties;
+    }
 
     public String generateToken(User user) {
         try {
@@ -30,7 +35,17 @@ public class TokenStore {
                     .sign(algorithm);
         } catch (JWTCreationException e){
             e.printStackTrace();
-            return null;
+            throw new IllegalArgumentException("生成token失败");
         }
+    }
+
+
+    public Map<String, Claim> checkToken(String token) {
+        Algorithm algorithm = Algorithm.HMAC256(authProperties.getSecret()); //use more secure key
+        JWTVerifier verifier = JWT.require(algorithm)
+                .withIssuer(authProperties.getIssuer())
+                .build(); //Reusable verifier instance
+        DecodedJWT jwt = verifier.verify(token.replace("Bearer ", ""));
+        return jwt.getClaims();
     }
 }

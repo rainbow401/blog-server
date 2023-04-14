@@ -12,9 +12,4 @@ public class LoginDTO {
 
     @NotBlank
     private String password;
-
-    public void setPassword(String password) {
-
-    }
-
 }
