@@ -27,7 +27,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public String login(LoginDTO dto) {
 
         String querySql = "select * from user where username = ? and password = ?";
-        User user = jdbcTemplate.queryForObject(querySql, new BeanPropertyRowMapper<>(User.class), dto.getUsername(), dto.getPassword());
+        User user = jdbcTemplate.queryForObject(
+                querySql,
+                new BeanPropertyRowMapper<>(User.class),
+                dto.getUsername(),
+                dto.getPassword());
+
         if(user == null) {
             throw new IllegalArgumentException("not find user");
         }

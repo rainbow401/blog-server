@@ -40,12 +40,16 @@ public class TokenStore {
     }
 
 
-    public Map<String, Claim> checkToken(String token) {
+    public Map<String, Claim> getTokenClaim(String token) {
+        DecodedJWT decodedJwt = checkToken(token);
+        return decodedJwt.getClaims();
+    }
+
+    public DecodedJWT checkToken(String token) {
         Algorithm algorithm = Algorithm.HMAC256(authProperties.getSecret()); //use more secure key
         JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer(authProperties.getIssuer())
                 .build(); //Reusable verifier instance
-        DecodedJWT jwt = verifier.verify(token.replace("Bearer ", ""));
-        return jwt.getClaims();
+        return verifier.verify(token.replace("Bearer ", ""));
     }
 }
