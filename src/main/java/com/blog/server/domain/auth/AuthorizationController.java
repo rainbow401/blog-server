@@ -26,7 +26,7 @@ public class AuthorizationController {
 
     @GetMapping("/check")
     public Boolean checkToken(@RequestHeader("Authorization") String token) {
-        tokenStore.checkToken(token);
+        tokenStore.verifyToken(token);
         return true;
     }
 

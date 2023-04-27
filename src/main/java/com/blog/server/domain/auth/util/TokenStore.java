@@ -7,10 +7,10 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.blog.common.entity.User;
+import com.blog.server.component.context.Token;
 import com.blog.server.domain.auth.config.AuthProperties;
 import com.blog.server.domain.auth.constance.TokenConstance;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.Date;
 import java.util.Map;
@@ -22,6 +22,28 @@ public class TokenStore {
 
     public TokenStore(AuthProperties authProperties) {
         this.authProperties = authProperties;
+    }
+
+    private static class DecodedToken implements Token {
+
+        private final Long userid;
+
+        private DecodedToken(Long userid) {
+            this.userid = userid;
+        }
+
+        @Override
+        public Long getUserid() {
+            return null;
+        }
+    }
+
+    public Token extract(String token) {
+        DecodedJWT tmp = JWT.decode(token);
+        Claim claim = tmp.getClaim(Token.Claim.UserId.getKey());
+        Long userId = Long.parseLong(claim.asString());
+
+        return new DecodedToken(userId);
     }
 
     public String generateToken(User user) {
@@ -41,15 +63,17 @@ public class TokenStore {
 
 
     public Map<String, Claim> getTokenClaim(String token) {
-        DecodedJWT decodedJwt = checkToken(token);
+        DecodedJWT decodedJwt = verifyToken(token);
         return decodedJwt.getClaims();
     }
 
-    public DecodedJWT checkToken(String token) {
+    public DecodedJWT verifyToken(String token) {
         Algorithm algorithm = Algorithm.HMAC256(authProperties.getSecret()); //use more secure key
         JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer(authProperties.getIssuer())
                 .build(); //Reusable verifier instance
-        return verifier.verify(token.replace("Bearer ", ""));
+        return verifier.verify(token);
     }
+
+
 }

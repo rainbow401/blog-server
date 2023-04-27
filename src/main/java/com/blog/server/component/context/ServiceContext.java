@@ -1,7 +1,5 @@
 package com.blog.server.component.context;
 
-import com.blog.common.entity.User;
-
 /**
  * @author yanzhihao
  * @date 2023/1/10
@@ -9,15 +7,7 @@ import com.blog.common.entity.User;
  */
 public interface ServiceContext extends ServiceContextInternal {
 
-    /**
-     * userid
-     * @return userid
-     */
-    String currentUserid();
+    Token currentToken();
 
-    /**
-     * userinfo
-     * @return userinfo
-     */
-    User currentUserInfo();
+    Long currentUserId();
 }

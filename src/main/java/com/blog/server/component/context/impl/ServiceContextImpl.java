@@ -1,10 +1,11 @@
 package com.blog.server.component.context.impl;
 
-import com.blog.common.entity.User;
 import com.blog.server.component.context.ServiceContext;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.blog.server.component.context.Token;
+import com.blog.server.domain.auth.util.TokenStore;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -15,33 +16,35 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class ServiceContextImpl implements ServiceContext {
 
-    private static final ThreadLocal<String> USER_ID = new ThreadLocal<>();
-    private static final ThreadLocal<User> USER_INFO = new ThreadLocal<>();
+    private static final ThreadLocal<Long> USERID = new ThreadLocal<>();
+    private static final ThreadLocal<Token> TOKEN = new ThreadLocal<>();
 
+    @Resource
+    private TokenStore tokenStore;
 
     @Override
-    public String currentUserid() {
-        return USER_ID.get();
+    public void extract(HttpServletRequest request) {
+        String tokenStr = request.getHeader(Token.TOKEN);
+        Token token = tokenStr != null ? tokenStore.extract(tokenStr) : null;
+        if (token != null) {
+            TOKEN.set(token);
+            USERID.set(token.getUserid());
+        }
     }
 
     @Override
-    public User currentUserInfo() {
-        return USER_INFO.get();
+    public Token currentToken() {
+        return TOKEN.get();
+    }
+
+    @Override
+    public Long currentUserId() {
+        return USERID.get();
     }
 
     @Override
     public void clear() {
-        USER_ID.remove();
-        USER_INFO.remove();
-    }
-
-    @Override
-    public void extract(HttpServletRequest request) {
-
-    }
-
-    private void setUserInfo(User user) {
-        USER_INFO.set(user);
-        USER_ID.set(user.getUsername());
+        TOKEN.remove();
+        USERID.remove();
     }
 }

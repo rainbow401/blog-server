@@ -43,8 +43,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Long create(UserDTO dto) {
-        return null;
+    public void create(UserDTO dto) {
+        String sql = "insert into user (username,password,create_by,update_by) values (?,?,?,?)";
+        jdbcTemplate.update(sql, dto.getUsername(), EncryptUtil.encryptPassword(dto.getPassword()), "admin", "admin");
     }
 
     private void verifyPassword(LoginDTO dto, User user) {

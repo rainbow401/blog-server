@@ -10,5 +10,5 @@ public interface UserService extends IService<User> {
 
     String login(LoginDTO dto);
 
-    Long create(UserDTO dto);
+    void create(UserDTO dto);
 }

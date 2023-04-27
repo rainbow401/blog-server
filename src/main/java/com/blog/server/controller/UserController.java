@@ -14,7 +14,8 @@ public class UserController {
 
     private final UserService userService;
 
-    public ResponseResult<Long> create(UserDTO dto) {
-        return ResponseResult.success(userService.create(dto));
+    public ResponseResult<Void> create(UserDTO dto) {
+        userService.create(dto);
+        return ResponseResult.success();
     }
 }
