@@ -47,6 +47,8 @@ mybatis-plus:
 auth:
   exp: 3600000
   secret: s/*-.1263@
-  issuer: my-practice
+  issuer: rainbow
+  ignore-path:
+    - /login
 
 
