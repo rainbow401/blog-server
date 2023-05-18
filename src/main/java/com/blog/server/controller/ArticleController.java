@@ -65,9 +65,8 @@ public class ArticleController {
      * @return
      */
     @PostMapping
-    public ResponseResult<Void> createArticle(@RequestBody ArticleCreationDTO dto) {
-        articleService.addArticle(dto);
-        return ResponseResult.success();
+    public ResponseResult<Long> createArticle(@RequestBody ArticleCreationDTO dto) {
+        return ResponseResult.success(articleService.addArticle(dto));
     }
 
     /**

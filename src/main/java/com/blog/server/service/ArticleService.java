@@ -16,7 +16,7 @@ import com.blog.server.vo.ArticleVO;
  */
 public interface ArticleService extends IService<Article> {
 
-    void addArticle(ArticleCreationDTO dto);
+    Long addArticle(ArticleCreationDTO dto);
 
     ArticleVO findById(String articleId);
 

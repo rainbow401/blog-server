@@ -46,7 +46,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void addArticle(ArticleCreationDTO dto) {
+    public Long addArticle(ArticleCreationDTO dto) {
 
         LambdaQueryWrapper<Article> queryWrapper = Wrappers.lambdaQuery();
         queryWrapper.eq(Article::getTitle, dto.getTitle());
@@ -59,6 +59,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleMapper.insert(article);
 
         insertArticleTag(article.getId(), dto.getTagIdList());
+
+        return article.getId();
     }
 
     private void insertArticleTag(Long articleId, List<Long> tagIdList) {
