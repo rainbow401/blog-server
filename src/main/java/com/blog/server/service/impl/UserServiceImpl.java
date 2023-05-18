@@ -2,10 +2,10 @@ package com.blog.server.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.blog.common.entity.User;
-import com.blog.server.domain.auth.dto.LoginDTO;
-import com.blog.server.domain.auth.util.EncryptUtil;
-import com.blog.server.domain.auth.util.TokenStore;
-import com.blog.server.domain.user.dto.UserDTO;
+import com.blog.server.dto.LoginDTO;
+import com.blog.server.util.EncryptUtil;
+import com.blog.server.util.TokenStore;
+import com.blog.server.dto.UserDTO;
 import com.blog.server.mapper.UserMapper;
 import com.blog.server.service.UserService;
 import lombok.RequiredArgsConstructor;

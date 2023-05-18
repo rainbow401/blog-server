@@ -8,8 +8,9 @@ import com.blog.common.entity.Article;
 import com.blog.common.entity.ArticleTag;
 import com.blog.common.entity.BaseEntity;
 import com.blog.common.entity.Tag;
-import com.blog.server.domain.article.dto.ArticleCreationDTO;
-import com.blog.server.domain.convert.ArticleConvertMapper;
+import com.blog.server.component.context.ServiceContext;
+import com.blog.server.dto.ArticleCreationDTO;
+import com.blog.server.convert.ArticleConvertMapper;
 import com.blog.server.dto.ArticleUpdateDTO;
 import com.blog.server.mapper.ArticleMapper;
 import com.blog.server.mapper.ArticleTagMapper;
@@ -37,12 +38,13 @@ import java.util.List;
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
 
     private final ArticleMapper articleMapper;
-
     private final ArticleTagMapper articleTagMapper;
+    private final TagMapper tagMapper;
 
     private final ArticleTagService articleTagService;
 
-    private final TagMapper tagMapper;
+    private final ServiceContext ctx;
+
 
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -55,7 +57,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
 
         Article article = ArticleConvertMapper.convertDtoToEntity(dto);
-        article.setDeleted(true);
+        article.setCreateBy(ctx.currentUserId());
         articleMapper.insert(article);
 
         insertArticleTag(article.getId(), dto.getTagIdList());
@@ -70,6 +72,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             ArticleTag temp = new ArticleTag();
             temp.setArticleId(articleId);
             temp.setTagId(tagId);
+            temp.setCreateBy(ctx.currentUserId());
             articleTagList.add(temp);
         }
 
@@ -107,11 +110,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         }
 
         Article article = ArticleConvertMapper.convertDtoToEntity(dto);
+        article.setUpdateBy(ctx.currentUserId());
         articleMapper.updateById(article);
 
         LambdaUpdateWrapper<ArticleTag> articleTagUpdate = Wrappers.lambdaUpdate();
         articleTagUpdate
                 .eq(ArticleTag::getArticleId, dto.getArticleId())
+                .set(BaseEntity::getUpdateBy, ctx.currentUserId())
                 .set(BaseEntity::getDeleted, true);
         articleTagMapper.update(null, articleTagUpdate);
 

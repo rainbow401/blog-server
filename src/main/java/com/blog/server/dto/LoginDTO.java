@@ -1,11 +1,11 @@
-package com.blog.server.domain.user.dto;
+package com.blog.server.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-public class UserDTO {
+public class LoginDTO {
 
     @NotBlank
     private String username;

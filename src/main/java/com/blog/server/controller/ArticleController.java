@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.blog.common.dto.PageDTO;
 import com.blog.common.entity.Article;
 import com.blog.common.resopnse.ResponseResult;
-import com.blog.server.domain.article.dto.ArticleCreationDTO;
+import com.blog.server.dto.ArticleCreationDTO;
 import com.blog.server.dto.ArticleUpdateDTO;
 import com.blog.server.service.ArticleService;
 import com.blog.server.vo.ArticleVO;

@@ -1,7 +1,7 @@
 package com.blog.server.controller;
 
 import com.blog.common.resopnse.ResponseResult;
-import com.blog.server.domain.user.dto.UserDTO;
+import com.blog.server.dto.UserDTO;
 import com.blog.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.blog.server.domain.auth.constance;
+package com.blog.server.constance;
 
 public class TokenConstance {
 

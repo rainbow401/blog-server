@@ -1,4 +1,4 @@
-package com.blog.server.domain.auth.util;
+package com.blog.server.util;
 
 
 import org.springframework.util.DigestUtils;

@@ -1,4 +1,4 @@
-package com.blog.server.domain.auth.util;
+package com.blog.server.util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -8,8 +8,8 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.blog.common.entity.User;
 import com.blog.server.component.context.Token;
-import com.blog.server.domain.auth.config.AuthProperties;
-import com.blog.server.domain.auth.constance.TokenConstance;
+import com.blog.server.config.AuthProperties;
+import com.blog.server.constance.TokenConstance;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -34,12 +34,14 @@ public class TokenStore {
 
         @Override
         public Long getUserid() {
-            return null;
+            return userid;
         }
     }
 
     public Token extract(String token) {
-        DecodedJWT tmp = JWT.decode(token);
+
+        DecodedJWT tmp = verifyToken(token);
+
         Claim claim = tmp.getClaim(Token.Claim.UserId.getKey());
         Long userId = Long.parseLong(claim.asString());
 

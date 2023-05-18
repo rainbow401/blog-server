@@ -2,7 +2,7 @@ package com.blog.server.component.context.impl;
 
 import com.blog.server.component.context.ServiceContext;
 import com.blog.server.component.context.Token;
-import com.blog.server.domain.auth.util.TokenStore;
+import com.blog.server.util.TokenStore;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

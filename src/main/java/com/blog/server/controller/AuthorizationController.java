@@ -1,9 +1,9 @@
-package com.blog.server.domain.auth;
+package com.blog.server.controller;
 
 import com.blog.common.resopnse.ResponseResult;
-import com.blog.server.domain.auth.config.AuthProperties;
-import com.blog.server.domain.auth.dto.LoginDTO;
-import com.blog.server.domain.auth.util.TokenStore;
+import com.blog.server.config.AuthProperties;
+import com.blog.server.dto.LoginDTO;
+import com.blog.server.util.TokenStore;
 import com.blog.server.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
